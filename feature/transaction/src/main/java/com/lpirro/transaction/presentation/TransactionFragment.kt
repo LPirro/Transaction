@@ -15,6 +15,7 @@ import com.lpirro.transaction.extensions.hideKeyboard
 import com.lpirro.transaction.presentation.adapter.CommandAdapter
 import com.lpirro.transaction.viewmodel.TransactionViewModel
 import com.lpirro.transaction.viewmodel.TransactionViewModel.TransactionUiState
+import com.lpirro.transactionscreen.R
 import com.lpirro.transactionscreen.databinding.FragmentTransactionBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -54,8 +55,8 @@ class TransactionFragment : BaseFragment<FragmentTransactionBinding>() {
 
     private fun showCommandProtectionDialog() {
         val builder = MaterialAlertDialogBuilder(requireContext())
-        builder.setTitle("Confirm")
-        builder.setMessage("Are you sure to perform this operation?")
+        builder.setTitle(getString(R.string.confirm))
+        builder.setMessage(getString(R.string.confirm_message))
         builder.setPositiveButton(android.R.string.ok) { dialog, _ ->
             viewModel.executeTransaction(binding.commandBuilderView.commandInput)
             dialog.dismiss()
