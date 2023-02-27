@@ -1,0 +1,77 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.3.1' apply false
+    id 'com.android.library' version '7.3.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
+    id 'com.google.dagger.hilt.android' version '2.44' apply false
+    id "org.jlleitschuh.gradle.ktlint" version "10.2.0"
+}
+
+ext {
+    // Versioning
+    compileSdk = 33
+    minSdk = 23
+    targetSdk = 33
+    versionCode = 1
+    versionName = "1.0"
+    jvmTarget = "1.8"
+
+    // AndroidX
+    coreKtx = "1.9.0"
+    appCompat = "1.6.1"
+    material = "1.8.0"
+    constraintLayout = "2.1.4"
+    navigationFragmentKtx = "2.5.3"
+    navigationUiKtx = "2.5.3"
+    lifeCycle = "2.5.1"
+    recyclerView = "1.2.1"
+    viewBindings = "7.4.0"
+
+    // Others
+    hiltGradle = "2.38.1"
+    ktlint = "10.2.0"
+    timber = "5.0.1"
+
+    // Unit Test
+    junit = "4.13.2"
+    extJunit = "1.1.5"
+    mockitoKotlin = "4.0.0"
+    mockitoInline = "3.5.13"
+    robolectric = "4.8"
+    turbine = "0.8.0"
+
+    // UI Test
+    espressoCore = "3.5.1"
+
+    // Hilt - DI
+    hilt = "2.44.2"
+
+    // Coroutines
+    kotlinxCoroutinesCore = "1.5.1"
+}
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdk rootProject.compileSdk
+                defaultConfig {
+                    minSdk rootProject.minSdk
+                    targetSdk rootProject.targetSdk
+                    versionCode rootProject.versionCode
+                    versionName rootProject.versionName
+                    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+                }
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_1_8
+                    targetCompatibility JavaVersion.VERSION_1_8
+                }
+                kotlinOptions {
+                    jvmTarget = '1.8'
+                }
+            }
+        }
+    }
+}

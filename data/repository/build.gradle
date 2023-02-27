@@ -1,0 +1,20 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.lpirro.repository'
+}
+
+dependencies {
+    implementation project(":domain")
+    implementation project(":data:local")
+    implementation "com.google.dagger:hilt-android:$rootProject.hilt"
+    kapt "com.google.dagger:hilt-compiler:$rootProject.hilt"
+    testImplementation "junit:junit:$rootProject.junit"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.extJunit"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$rootProject.mockitoKotlin"
+    testImplementation "org.mockito:mockito-inline:$rootProject.mockitoInline"
+}

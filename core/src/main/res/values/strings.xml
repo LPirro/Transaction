@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="command_set">SET</string>
+    <string name="command_get">GET</string>
+    <string name="command_begin">BEGIN</string>
+    <string name="command_commit">COMMIT</string>
+    <string name="command_rollback">ROLLBACK</string>
+    <string name="command_delete">DELETE</string>
+    <string name="send_command_content_description">Send Command</string>
+    <string name="hint_command_input">Type a command here</string>
+</resources>

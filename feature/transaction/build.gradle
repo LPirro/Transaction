@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.lpirro.transactionscreen'
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    api project(":core")
+    api project(":domain")
+
+    implementation "com.google.android.material:material:$rootProject.material"
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationFragmentKtx"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationUiKtx"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompat"
+    implementation "com.google.dagger:hilt-android:$rootProject.hilt"
+    kapt "com.google.dagger:hilt-compiler:$rootProject.hilt"
+    testImplementation "junit:junit:$rootProject.junit"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.extJunit"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$rootProject.mockitoKotlin"
+    testImplementation "org.mockito:mockito-inline:$rootProject.mockitoInline"
+    testImplementation "org.robolectric:robolectric:$rootProject.robolectric"
+    testImplementation "app.cash.turbine:turbine:$rootProject.turbine"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$rootProject.kotlinxCoroutinesCore"
+}
